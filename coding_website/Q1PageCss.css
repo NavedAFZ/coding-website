@@ -1,0 +1,256 @@
+*{
+    margin:0;
+    padding: 0;
+}
+body{
+    background-color:white;
+ line-height: 30px;;
+ font-family: Verdana, Tahoma, sans-serif;
+ 
+}
+.clr{
+	clear:both;
+}
+.button{
+	background-color:#333;
+	color:#fff;
+	padding:10px 15px;
+	border:none;
+}
+
+.button:hover{
+	background:red;
+	color:#fff;
+}
+
+a{
+	text-decoration: none;
+	color:  blue;;
+}
+
+a:hover{
+	color:red;
+}
+
+a:active{
+	color:green;
+}
+#main-header
+{
+    padding: 30px;
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: center;
+    color: black;
+    background-color: honeydew;
+}
+#navbar
+{
+    padding: 10px 0px;
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 20px;
+    height: 35px;
+    color: greenyellow;
+    background-color: coral;
+    
+}
+#navbar a{
+    color: darkslategray;
+
+}
+#navbar a:hover{
+	color: blue
+}
+#navbar li {
+    display: inline;
+;
+    float:left;
+    text-align: center;
+   width:20%;
+   padding-right: 5px;
+  /* padding:5px 10px;*/
+   
+   
+   box-sizing: border-box;
+}
+.question{
+   padding: 15px 0; 
+   background-color: white;
+   box-sizing: border-box;
+   
+}
+.question h3{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
+    padding-top: 0;
+}
+.question p{
+    padding: 10px;
+    
+}
+.sollution{
+    background-color:white;
+    
+    height: 300px;;
+    
+}
+.s1
+{
+    height: 300px;;
+    display: inline;
+    width: 33.3%;
+    float: left;
+    border: 2px black solid;
+    box-sizing: border-box;
+    padding: 10px;
+    
+}
+.s1 h2{
+    text-transform: uppercase;
+
+}
+.pp{
+    height: 100px;
+}
+.s1 a{
+    
+    color: blue
+    padding: 10px;
+
+}
+.s1 a:hover{
+    
+    color:red;
+    
+}
+
+.image-login .image{
+    margin:0;
+    width:70%;
+    float: left;
+    height: 30em;
+    background-color: blue;
+  /*background-attachment: fixed;*/
+  
+    
+  
+    
+    overflow: hidden;
+  
+    background-repeat: no-repeat;
+    
+    /*box-sizing: border-box;*/
+}
+img
+{
+    width: 70em;
+    height: 30em;
+    box-sizing: border-box;
+}
+.image-login 
+{
+    background-color: blue;
+    height: 30em;
+    box-sizing: border-box;
+}
+.image-login .box
+{
+    position: relative;
+    right: 0;
+    margin: 0;
+    
+    background-color: #24272B;
+    height: 30em;
+    width: 30%;
+    float: right;
+    padding: 30px;
+    padding-top: 100px;   
+    background-color:white;
+    /*transform: translate(-50%,-50%);*/
+    
+    box-sizing: border-box;
+    
+    
+}
+.image-login .box input[type="text"],.box input[type="password"]
+{
+    display: block;
+    text-align: center;
+    
+    padding: 10px;
+    margin: 25px auto;
+    width: 180px;
+    border-radius: 20px;
+    outline: none;
+    border: 2px #FF2C55 solid;
+    background-color: #24272B;
+    color: white;
+    transition: 0.30s;
+    box-sizing: border-box;
+} 
+.image-login .box h1{
+    color: #FF2C55;
+    text-align: center;
+    font-weight: 500;
+
+}
+.image-login .box input[type="text"]:focus,.box input[type="password"]:focus{
+ width: 250px;   
+ border-color: turquoise;
+}
+.image-login .box input[type="submit"]
+{
+    display: block;
+    text-align: center;
+    
+    padding:10px 25px;
+    margin: 25px auto;
+    
+    border-radius: 20px;
+    outline: none;
+    border: 2px  turquoise solid;
+    background-color:#24272B;
+    color: white;
+    transition: 0.30s;
+}
+.image-login .box input[type="submit"]:focus{
+    width: 150px;;
+    border-color: tomato;
+}
+.related-question
+{
+    padding-top: 20px;
+
+background-color:white;
+}
+.related-question h1{
+    font-size: 38px;
+    padding: 5px 20px;
+}
+.related-question ul{
+    padding:20px 50px;
+}
+.query{
+    background-color: white;
+}
+.query p{
+    padding: 30px;
+    font-style: italic;
+    color: black;
+    font-size: 38px;
+    font-weight: bold;
+    line-height: 40px;
+}
+.query textarea{
+    width: 90%;
+    padding: 15px;
+}
+#main-footer
+{
+    border-top: 5px black dotted;
+    background-color:  white;
+    padding: 10px;;
+}

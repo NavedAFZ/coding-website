@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="question_page.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gfg-question-page</title>
+</head>
+<body>
+    <div class="d1">
+        </div>
+    <div class="container">
+        <header>
+            
+                <nav>
+                    <ul>
+                        <li><a href="#">Tutorial</a></li>
+                        <li><a href="#">student</a></li>
+                        <li><a href="#">Cources</a></li>
+                    </ul>
+                </nav>
+        
+            <div class="website-name">
+                <h1>C@de is fun!</h1>
+            </div>
+            <form class="my-form">
+                <form action="">
+                    <input type="text" name="" id="">
+                    <input type="submit" name="" id="" value="click">
+                </form>
+            
+        </header>
+    </div>
+    <!--*******************************************-->
+        <div class="container2">
+        <div class="left-sidebar"></div>
+        <div class="center-bar">
+            <div class="question">
+                <h1>Print all nodes that are at distance k from a leaf node</h1>
+                <p>Given a Binary Tree and a positive integer k, print all nodes that are distance k from a leaf node.
+
+                    Here the meaning of distance is different from previous post. Here k distance from a leaf means k levels higher than a leaf node. For example if k is more than height of Binary Tree, then nothing should be printed. Expected time complexity is O(n) where n is the number nodes in the given Binary Tree.</p>
+                    ,<img class="question-image" src="../images/q.png" alt="">
+                    <p>The idea is to traverse the tree. Keep storing all ancestors till we hit a leaf node. When we reach a leaf node, we print the ancestor at distance k. We also need to keep track of nodes that are already printed as output. For that we use a boolean array visited[].</p>
+            </div>
+            <!----------------------------------------------------------------------------------------------->
+            
+            <!----------------------------------------------------------------------------------------------->
+            
+            <!----------------------------------------------------------------------------------------------->
+            
+            <!----------------------------------------------------------------------------------------------->
+            <div class="code">
+                <div class="code1">
+                    
+                        <code class="comments">/* Program to print all nodes which are at distance k from a leaf */</code></div>
+                        <div class="line number1 index0 alt2"><code class="comments">/* Program to print all nodes which are at distance k from a leaf */</code></div>
+<div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;iostream> </code></div>
+<div class="line number3 index2 alt2"><code class="keyword bold">using</code> <code class="keyword bold">namespace</code> <code class="plain">std; </code></div>
+<div class="line number4 index3 alt1"><code class="preprocessor">#define MAX_HEIGHT 10000 </code></div>
+<div class="line number5 index4 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number6 index5 alt1"><code class="keyword bold">struct</code> <code class="plain">Node { </code></div>
+<div class="line number7 index6 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">key; </code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">Node *left, *right; </code></div>
+<div class="line number9 index8 alt2"><code class="plain">}; </code></div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number11 index10 alt2"><code class="comments">/* utility that allocates a new Node with the given key&nbsp; */</code></div>
+<div class="line number12 index11 alt1"><code class="plain">Node* newNode(</code><code class="color1 bold">int</code> <code class="plain">key) </code></div>
+<div class="line number13 index12 alt2"><code class="plain">{ </code></div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">Node* node = </code><code class="keyword bold">new</code> <code class="plain">Node; </code></div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">node->key = key; </code></div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">node->left = node->right = NULL; </code></div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">(node); </code></div>
+<div class="line number18 index17 alt1"><code class="plain">} </code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number20 index19 alt1"><code class="comments">/* This function prints all nodes that are distance k from a leaf node </code></div>
+<div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;</code><code class="comments">path[] --> Store ancestors of a node </code></div>
+<div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;</code><code class="comments">visited[] --> Stores true if a node is printed as output.&nbsp; A node may be k </code></div>
+<div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">distance away from many leaves, we want to print it once */</code></div>
+<div class="line number24 index23 alt1"><code class="keyword bold">void</code> <code class="plain">kDistantFromLeafUtil(Node* node, </code><code class="color1 bold">int</code> <code class="plain">path[], </code><code class="color1 bold">bool</code> <code class="plain">visited[], </code></div>
+<div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">pathLen, </code><code class="color1 bold">int</code> <code class="plain">k) </code></div>
+<div class="line number26 index25 alt1"><code class="plain">{ </code></div>
+<div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Base case </code></div>
+<div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">if</code> <code class="plain">(node == NULL) </code></div>
+<div class="line number29 index28 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code><code class="plain">; </code></div>
+<div class="line number30 index29 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number31 index30 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">/* append this Node to the path array */</code></div>
+<div class="line number32 index31 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">path[pathLen] = node->key; </code></div>
+<div class="line number33 index32 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">visited[pathLen] = </code><code class="keyword bold">false</code><code class="plain">; </code></div>
+<div class="line number34 index33 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">pathLen++; </code></div>
+<div class="line number35 index34 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number36 index35 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">/* it's a leaf, so print the ancestor at distance k only </code></div>
+<div class="line number37 index36 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">if the ancestor is not already printed&nbsp; */</code></div>
+<div class="line number38 index37 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">if</code> <code class="plain">(node->left == NULL && node->right == NULL && pathLen - k - 1 >= 0 && visited[pathLen - k - 1] == </code><code class="keyword bold">false</code><code class="plain">) { </code></div>
+<div class="line number39 index38 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">cout &lt;&lt; path[pathLen - k - 1] &lt;&lt; </code><code class="string">" "</code><code class="plain">; </code></div>
+<div class="line number40 index39 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">visited[pathLen - k - 1] = </code><code class="keyword bold">true</code><code class="plain">; </code></div>
+<div class="line number41 index40 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code><code class="plain">; </code></div>
+<div class="line number42 index41 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code></div>
+<div class="line number43 index42 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number44 index43 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">/* If not leaf node, recur for left and right subtrees */</code></div>
+<div class="line number45 index44 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">kDistantFromLeafUtil(node->left, path, visited, pathLen, k); </code></div>
+<div class="line number46 index45 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">kDistantFromLeafUtil(node->right, path, visited, pathLen, k); </code></div>
+<div class="line number47 index46 alt2"><code class="plain">} </code></div>
+<div class="line number48 index47 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number49 index48 alt2"><code class="comments">/* Given a binary tree and a nuber k, print all nodes that are k </code></div>
+<div class="line number50 index49 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;</code><code class="comments">distant from a leaf*/</code></div>
+<div class="line number51 index50 alt2"><code class="keyword bold">void</code> <code class="plain">printKDistantfromLeaf(Node* node, </code><code class="color1 bold">int</code> <code class="plain">k) </code></div>
+<div class="line number52 index51 alt1"><code class="plain">{ </code></div>
+<div class="line number53 index52 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">path[MAX_HEIGHT]; </code></div>
+<div class="line number54 index53 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">bool</code> <code class="plain">visited[MAX_HEIGHT] = { </code><code class="keyword bold">false</code> <code class="plain">}; </code></div>
+<div class="line number55 index54 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">kDistantFromLeafUtil(node, path, visited, 0, k); </code></div>
+<div class="line number56 index55 alt1"><code class="plain">} </code></div>
+<div class="line number57 index56 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number58 index57 alt1"><code class="comments">/* Driver program to test above functions*/</code></div>
+<div class="line number59 index58 alt2"><code class="color1 bold">int</code> <code class="plain">main() </code></div>
+<div class="line number60 index59 alt1"><code class="plain">{ </code></div>
+<div class="line number61 index60 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Let us create binary tree given in the above example </code></div>
+<div class="line number62 index61 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">Node* root = newNode(1); </code></div>
+<div class="line number63 index62 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">root->left = newNode(2); </code></div>
+<div class="line number64 index63 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">root->right = newNode(3); </code></div>
+<div class="line number65 index64 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">root->left->left = newNode(4); </code></div>
+<div class="line number66 index65 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">root->left->right = newNode(5); </code></div>
+<div class="line number67 index66 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">root->right->left = newNode(6); </code></div>
+<div class="line number68 index67 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">root->right->right = newNode(7); </code></div>
+<div class="line number69 index68 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">root->right->left->right = newNode(8); </code></div>
+<div class="line number70 index69 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number71 index70 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">cout &lt;&lt; </code><code class="string">"Nodes at distance 2 are: "</code><code class="plain">; </code></div>
+<div class="line number72 index71 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">printKDistantfromLeaf(root, 2); </code></div>
+<div class="line number73 index72 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number74 index73 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
+<div class="line number75 index74 alt2"><code class="plain">} </code></div>
+
+                
+                
+                <div class="code2"></div>
+            </div>
+        </div>
+        
+            <!----------------------------------------------------------------------------------------------->
+            
+            <!----------------------------------------------------------------------------------------------->
+            
+            <!----------------------------------------------------------------------------------------------->
+            
+            <!----------------------------------------------------------------------------------------------->
+    
+        <div class="right-sidebar">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, perferendis labore quos blanditiis, eveniet officiis omnis laudantium corrupti minima corporis adipisci iste, eius officia! Enim distinctio ea est? Nisi, cupiditate.</div>
+    </div>
+    
+    <script src="question_page.js"></script>
+</body>
+</html>
